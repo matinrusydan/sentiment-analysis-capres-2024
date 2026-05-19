@@ -14,7 +14,7 @@ Model terbaik pada eksperimen data bersih adalah BiLSTM dengan akurasi 89,38%.
 Repositori ini menyediakan dua notebook dengan tujuan berbeda:
 
 - `main.ipynb`
-  Notebook demo preprocessing dari data original/kotor. Notebook ini cocok digunakan saat presentasi untuk menunjukkan proses pembersihan teks dari dataset original, termasuk penghapusan URL, karakter non-alfabet, case folding, penghapusan spasi berlebih, filtering data, dan konversi label. Pada output terakhir, BiLSTM memperoleh akurasi 84,58%.
+  Notebook demo preprocessing dari data original/kotor. Notebook ini cocok digunakan saat presentasi untuk menunjukkan proses pembersihan teks dari dataset original, termasuk penghapusan URL, karakter non-alfabet, case folding, penghapusan spasi berlebih, filtering data, dan konversi label. Output training/evaluasi perlu dijalankan ulang setelah pembaruan preprocessing.
 
 - `main_clean_data.ipynb`
   Notebook eksperimen utama untuk hasil modeling. Notebook ini memakai dataset labeled/bersih pada kolom `Text`, sehingga hasil BiLSTM lebih tinggi dan lebih konsisten untuk pelaporan akhir. Pada output terakhir, BiLSTM memperoleh akurasi 89,38%.
@@ -33,13 +33,9 @@ Repositori ini menyediakan dua notebook dengan tujuan berbeda:
 
 ## Ringkasan Hasil
 
-### `main.ipynb` - Data Original/Kotor
+### `main.ipynb` - Demo Data Original/Kotor
 
-| Model | Akurasi | Catatan |
-|---|---:|---|
-| LSTM | 72,18% | Cenderung memprediksi kelas mayoritas |
-| GRU | 72,18% | Cenderung memprediksi kelas mayoritas |
-| BiLSTM | 84,58% | Model terbaik pada eksperimen data original/kotor |
+Notebook ini difokuskan untuk demo tahapan preprocessing dari data original/kotor. Output training/evaluasi dikosongkan setelah pembaruan preprocessing, sehingga akurasi perlu dibuat ulang dengan menjalankan seluruh cell notebook.
 
 ### `main_clean_data.ipynb` - Data Bersih/Labeled
 
@@ -64,10 +60,12 @@ Folder `data/` tidak disertakan ke GitHub karena ukuran dan sifat dataset. Pasti
 
 ## Cara Menjalankan
 
-1. Buat dan aktifkan virtual environment:
+1. Buat dan aktifkan virtual environment.
+
+Untuk Windows native dengan NVIDIA GPU, gunakan Python 3.10. TensorFlow 2.10 adalah rilis terakhir yang mendukung CUDA GPU di Windows native.
 
 ```powershell
-python -m venv .venv
+py -3.10 -m venv .venv
 .\.venv\Scripts\activate
 ```
 
@@ -90,7 +88,22 @@ python -m jupyter notebook
 
 ## Catatan GPU
 
-Eksperimen ini dapat dijalankan dengan CPU. Pada Windows native dengan TensorFlow versi baru, CUDA GPU tidak otomatis digunakan. Jika ingin memakai GPU NVIDIA, gunakan WSL2 atau Google Colab.
+Eksperimen ini dapat dijalankan dengan CPU maupun GPU. Untuk GPU di Windows native, gunakan kombinasi berikut:
+
+- Python 3.10
+- TensorFlow 2.10.1
+- CUDA Toolkit 11.2
+- cuDNN 8.1
+
+TensorFlow 2.11 ke atas tidak mendukung CUDA GPU di Windows native. Python 3.11 juga tidak direkomendasikan untuk jalur TensorFlow 2.10 GPU native.
+
+Verifikasi GPU:
+
+```powershell
+python -c "import tensorflow as tf; print(tf.__version__); print(tf.config.list_physical_devices('GPU'))"
+```
+
+Jika berhasil, output harus menampilkan device `GPU`.
 
 ## File yang Dipush
 
