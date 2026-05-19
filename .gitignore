@@ -1,0 +1,25 @@
+# Mengabaikan semua file dan folder secara default
+*
+
+# Mengecualikan folder agar file di dalamnya bisa dibaca jika di-whitelist (walau saat ini semua file di root)
+!*/
+
+# --------------------------------------------------------
+# DAFTAR FILE YANG DIIZINKAN (WHITELIST)
+# Tambahkan file di bawah ini jika ingin ikut di-push
+# --------------------------------------------------------
+!.gitignore
+!README.md
+!main.ipynb
+!main_clean_data.ipynb
+!requirements.txt
+
+# --------------------------------------------------------
+# PASTIKAN FOLDER INI TETAP DIABAIKAN
+# --------------------------------------------------------
+.venv/
+data/
+-p/
+__pycache__/
+.ipynb_checkpoints/
+.git/
