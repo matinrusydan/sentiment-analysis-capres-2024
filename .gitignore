@@ -8,11 +8,11 @@
 # DAFTAR FILE YANG DIIZINKAN (WHITELIST)
 # Tambahkan file di bawah ini jika ingin ikut di-push
 # --------------------------------------------------------
-!.gitignore
-!README.md
-!main.ipynb
-!main_clean_data.ipynb
-!requirements.txt
+!/.gitignore
+!/README.md
+!/main.ipynb
+!/main_clean_data.ipynb
+!/requirements.txt
 
 # --------------------------------------------------------
 # PASTIKAN FOLDER INI TETAP DIABAIKAN
