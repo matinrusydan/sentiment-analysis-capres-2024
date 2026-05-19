@@ -7,17 +7,17 @@ Task yang digunakan adalah binary sentiment classification dengan dua kelas:
 - Positive
 - Negative
 
-Model terbaik pada eksperimen data bersih adalah BiLSTM dengan akurasi sekitar 88,65%.
+Model terbaik pada eksperimen data bersih adalah BiLSTM dengan akurasi 89,38%.
 
 ## Notebook
 
 Repositori ini menyediakan dua notebook dengan tujuan berbeda:
 
 - `main.ipynb`
-  Notebook demo preprocessing dari data original/kotor. Notebook ini cocok digunakan saat presentasi untuk menunjukkan proses pembersihan teks dari dataset original, termasuk penghapusan URL, karakter non-alfabet, case folding, penghapusan spasi berlebih, filtering data, dan konversi label.
+  Notebook demo preprocessing dari data original/kotor. Notebook ini cocok digunakan saat presentasi untuk menunjukkan proses pembersihan teks dari dataset original, termasuk penghapusan URL, karakter non-alfabet, case folding, penghapusan spasi berlebih, filtering data, dan konversi label. Pada output terakhir, BiLSTM memperoleh akurasi 84,58%.
 
 - `main_clean_data.ipynb`
-  Notebook eksperimen utama untuk hasil modeling. Notebook ini memakai dataset labeled/bersih pada kolom `Text`, sehingga hasil BiLSTM lebih konsisten dengan laporan awal, yaitu sekitar 88% akurasi.
+  Notebook eksperimen utama untuk hasil modeling. Notebook ini memakai dataset labeled/bersih pada kolom `Text`, sehingga hasil BiLSTM lebih tinggi dan lebih konsisten untuk pelaporan akhir. Pada output terakhir, BiLSTM memperoleh akurasi 89,38%.
 
 ## Alur Proyek
 
@@ -33,11 +33,21 @@ Repositori ini menyediakan dua notebook dengan tujuan berbeda:
 
 ## Ringkasan Hasil
 
+### `main.ipynb` - Data Original/Kotor
+
 | Model | Akurasi | Catatan |
 |---|---:|---|
 | LSTM | 72,18% | Cenderung memprediksi kelas mayoritas |
 | GRU | 72,18% | Cenderung memprediksi kelas mayoritas |
-| BiLSTM | 88,65% | Model terbaik pada eksperimen data bersih |
+| BiLSTM | 84,58% | Model terbaik pada eksperimen data original/kotor |
+
+### `main_clean_data.ipynb` - Data Bersih/Labeled
+
+| Model | Akurasi | Catatan |
+|---|---:|---|
+| LSTM | 72,18% | Cenderung memprediksi kelas mayoritas |
+| GRU | 72,18% | Cenderung memprediksi kelas mayoritas |
+| BiLSTM | 89,38% | Model terbaik pada eksperimen data bersih |
 
 ## Struktur Data
 
