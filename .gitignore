@@ -12,6 +12,7 @@
 !/README.md
 !/main.ipynb
 !/main_clean_data.ipynb
+!/demo_pytorch_cuda.ipynb
 !/requirements.txt
 
 # --------------------------------------------------------
